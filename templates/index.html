@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Prediction</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f857a6, #ff5858);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #c0392b;
+            margin-bottom: 25px;
+        }
+
+        h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .positive {
+            background-color: #fdecea;
+            color: #c0392b;
+        }
+
+        .negative {
+            background-color: #e8f8f5;
+            color: #117864;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>Breast Cancer Prediction System</h1>
+
+        <form action="/predict" method="POST">
+
+            <h3>Mean Features</h3>
+            <div class="grid">
+                <input name="f1" placeholder="radius_mean" required>
+                <input name="f2" placeholder="texture_mean" required>
+                <input name="f3" placeholder="perimeter_mean" required>
+                <input name="f4" placeholder="area_mean" required>
+                <input name="f5" placeholder="smoothness_mean" required>
+                <input name="f6" placeholder="compactness_mean" required>
+                <input name="f7" placeholder="concavity_mean" required>
+                <input name="f8" placeholder="concave points_mean" required>
+                <input name="f9" placeholder="symmetry_mean" required>
+                <input name="f10" placeholder="fractal_dimension_mean" required>
+            </div>
+
+            <h3>SE Features</h3>
+            <div class="grid">
+                <input name="f11" placeholder="radius_se" required>
+                <input name="f12" placeholder="texture_se" required>
+                <input name="f13" placeholder="perimeter_se" required>
+                <input name="f14" placeholder="area_se" required>
+                <input name="f15" placeholder="smoothness_se" required>
+                <input name="f16" placeholder="compactness_se" required>
+                <input name="f17" placeholder="concavity_se" required>
+                <input name="f18" placeholder="concave points_se" required>
+                <input name="f19" placeholder="symmetry_se" required>
+                <input name="f20" placeholder="fractal_dimension_se" required>
+            </div>
+
+            <h3>Worst Features</h3>
+            <div class="grid">
+                <input name="f21" placeholder="radius_worst" required>
+                <input name="f22" placeholder="texture_worst" required>
+                <input name="f23" placeholder="perimeter_worst" required>
+                <input name="f24" placeholder="area_worst" required>
+                <input name="f25" placeholder="smoothness_worst" required>
+                <input name="f26" placeholder="compactness_worst" required>
+                <input name="f27" placeholder="concavity_worst" required>
+                <input name="f28" placeholder="concave points_worst" required>
+                <input name="f29" placeholder="symmetry_worst" required>
+                <input name="f30" placeholder="fractal_dimension_worst" required>
+            </div>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction_text %}
+            <div class="result 
+                {% if 'Cancer' in prediction_text %}positive{% else %}negative{% endif %}">
+                Result: {{ prediction_text }}
+            </div>
+        {% endif %}
+
+    </div>
+</body>
+</html>
