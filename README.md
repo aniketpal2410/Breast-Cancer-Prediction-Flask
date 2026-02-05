@@ -43,3 +43,5 @@ breast-cancer-prediction/
 │ └── index.html
 │
 └── static/
+## Deployed Link
+https://breast-cancer-prediction-flask.onrender.com/
