@@ -43,5 +43,9 @@ breast-cancer-prediction/
 │ └── index.html
 │
 └── static/
+## Dataset
+The dataset used is the Breast Cancer Wisconsin Diagnostic dataset,
+available on Kaggle:
+https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
 ## Deployed Link
 https://breast-cancer-prediction-flask.onrender.com/
